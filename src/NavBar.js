@@ -16,7 +16,7 @@ import { modeCtx } from "./App";
 export function NavBar() {
     const navigate = useNavigate();
     const [carts, setCarts] = useState([]);
-    // const [moDe, setMoDe] = useContext(modeCtx);
+    const [moDe, setMoDe] = useContext(modeCtx);
   
     const getItems = () => {
       fetch(`${API}/cart`)
@@ -35,7 +35,7 @@ export function NavBar() {
               src="https://webstockreview.net/images/clipart-restaurant-restaurant-logo-13.png"
               alt="restaurant-logo"
             />
-            <h1 className="app-name">FOOD HOUSE</h1>
+            <h1 className="app-name">FOOD ZONE</h1>
           </div>
           <div className="nav-button">
             <Button
@@ -60,15 +60,7 @@ export function NavBar() {
               </Badge>
             </Button>
     
-            {/* <Button
-              color="primary"
-              startIcon={
-                moDe === "dark" ? <Brightness7Icon /> : <Brightness4Icon />
-              }
-              onClick={() => setMoDe(moDe === "light" ? "dark" : "light")}
-            >
-              {" "}
-            </Button> */}
+           
             <Button onClick={() => navigate("/")} variant="text">
               {/* <IconButton  aria-label="info">
                 <LogoutIcon />
@@ -79,8 +71,14 @@ export function NavBar() {
             <Button onClick={() => navigate("/admin")} variant="text">
               Admin
             </Button>
-            <Button onClick={() => navigate("/profile")} variant="text">
-              profile
+            <Button
+              color="primary"
+              startIcon={
+                moDe === "dark" ? <Brightness7Icon /> : <Brightness4Icon />
+              }
+              onClick={() => setMoDe(moDe === "light" ? "dark" : "light")}
+            >
+          {moDe==="light"?"Dark":"light"} mode 
             </Button>
           </div>
         </nav>

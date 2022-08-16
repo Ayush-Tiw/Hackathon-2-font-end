@@ -42,9 +42,7 @@ export function CartList() {
   }, []);
 
   function setCart(){
-    // setCartValue(cartValue-1);
-    // navigate("/explore")
-    <NavBar/>
+    
     
   }
 
@@ -100,7 +98,7 @@ function checkout(res){
       draggable: true,
       progress: undefined,
       },{type:"success"});
-      
+
       fetch(
         `${API}/cart`,
        {
@@ -137,13 +135,7 @@ await fetch(`${API}/orders`,
 
 
     }
-    // const clearCart=()=>{
-    //   fetch(
-    //     `${API}/cart`,
-    //    {
-    //      method:"DELETE"
-    //     }).then(()=>getItems())
-    // }
+    
 
   return (
     <div>
