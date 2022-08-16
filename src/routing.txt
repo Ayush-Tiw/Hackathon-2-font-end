@@ -1,0 +1,13 @@
+why we need react router?
+why routing--> 1.if we dont have routing and we are going through any page and if we are at mid of that page and by mistake we click refresh then again we will be send back to starting of that page
+2. cannot bookmark 
+
+when we have routing
+1.it look more organised
+2.Ease of access
+3.sharing url
+4.secure route
+
+we want our App to be smoth like spa and have routing like mpa
+
+we use Browser router it has more feature than # hash router
