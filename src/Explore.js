@@ -10,9 +10,7 @@ export function Explore(){
 
   const[search,setSearch]=useState("")
 
-  function Search(){
 
-  }
     const navigate = useNavigate();
 
     const[foodVisible,setfoodVisible]=useState(8)
@@ -41,11 +39,7 @@ export function Explore(){
       <div className="explore-container">
         <NavBar/>
         <div className="explore-header">
-          {/* Search bar */}
-          {/* <div className="search-container">
-          <input className="search-input" type="search" onChange={(event)=>setSearch(event.target.value)}></input>
-          <button onClick={Search()}>search</button>
-          </div> */}
+         
           
          </div><br></br>
         <hr></hr>

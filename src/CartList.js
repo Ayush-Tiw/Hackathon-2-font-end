@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect,useState,useContext} from "react";
+import { useEffect,useState,useContext, createContext} from "react";
 import { API } from "./global";
 import { Cart } from "./Cart";
 import Button from "@mui/material/Button";
@@ -17,17 +17,31 @@ import StripeCheckout from 'react-stripe-checkout';
 import { TableBody } from "@mui/material";
 import {cartCtx} from "./App";
 import { ToastContainer, toast } from 'react-toastify';
+import { userCtx } from "./App";
 
 
 
 
 
+export const cartLengthCtx = createContext();
 export function CartList() {
 
   const[cartValue, setCartValue]=useContext(cartCtx)
-
   const[carts,setCarts]=useState([])
+  const [user, setUser] = useContext(userCtx);
+
+ 
+  
   const navigate = useNavigate();
+
+  console.log(user);
+
+ const usercart= carts.filter((cart)=>
+ {return cart.userId===user._id})
+console.log(usercart)
+
+// const [cartLength,setCartLength]=useState(usercart.length)
+// console.log(cartLength)
 
   const getItems=()=>{
     fetch(`${API}/cart`)
@@ -35,7 +49,8 @@ export function CartList() {
     .then((cart)=>setCarts(cart))
   }
 
-  console.log(carts.length)
+  // console.log(carts.length)
+  
 
   useEffect(() => {
     getItems()
@@ -55,12 +70,12 @@ export function CartList() {
          method:"DELETE"
         })
         .then(()=>getItems())
-        .then(()=>setCart());
+        .then(()=>navigate("/cartList"));
 
         
       }
 
-let result=carts.reduce((arr,cart)=>{
+let result=usercart.reduce((arr,cart)=>{
 let total=cart.quantity*cart.price
 arr.push(total)
 return arr
@@ -72,6 +87,8 @@ return arr
     },0)
 console.log(totalPrice)
 
+
+
 const [product]=useState({
   price:totalPrice
 })
@@ -80,58 +97,66 @@ const [product]=useState({
 
 async function  handleToken(token,product){
 
+
+
+  fetch(
+            `${API}/cart`,
+           {
+             method:"DELETE"
+            }).then(()=>navigate("/order-placed"));
+
+            // create a order placed page
+
+// function checkout(res){
+
   
 
-function checkout(res){
+//   console.log(res)
 
-  
+//   if(res.status===200){
+//     toast('Payment is completed', {
+//       position: "top-center",
+//       autoClose: 3000,
+//       hideProgressBar: false,
+//       closeOnClick: true,
+//       pauseOnHover: true,
+//       draggable: true,
+//       progress: undefined,
+//       },{type:"success"});
 
-  console.log(res)
+//       fetch(
+//         `${API}/cart`,
+//        {
+//          method:"DELETE"
+//         }).then(()=>getItems());
 
-  if(res.status===200){
-    toast('Payment is completed', {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      },{type:"success"});
+//   }else{
+//     toast.error('Failure,Payment is not completed', {
+//       position: "top-center",
+//       autoClose: 3000,
+//       hideProgressBar: false,
+//       closeOnClick: true,
+//       pauseOnHover: true,
+//       draggable: true,
+//       progress: undefined,
+//       },{type:"error"});
+//   }
 
-      fetch(
-        `${API}/cart`,
-       {
-         method:"DELETE"
-        }).then(()=>getItems());
-
-  }else{
-    toast.error('Failure,Payment is not completed', {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      },{type:"error"});
-  }
-
-}
-const data={
-  token:token,
-  product:product
-}
+// }
+// const data={
+//   token:token,
+//   product:product
+// }
 
  
-await fetch(`${API}/orders`,
-{
-  method:"POST",
-  body:JSON.stringify({token,product}),
-  header:{
-    'content-type':'application/json'
-  }
-}).then((response)=>checkout(response))
+// await fetch(`${API}/orders`,
+// {
+//   method:"POST",
+//   body:JSON.stringify({token,product}),
+//   header:{
+//     'content-type':'application/json'
+//   }
+// }).then((response)=>checkout(response))
 
 
     }
@@ -141,8 +166,8 @@ await fetch(`${API}/orders`,
     <div>
       <NavBar/>
     <div className="cart-list-container">
-      <p className="total-item">Total items : <span className="green">{carts.length}</span></p>
-{carts.map((cart)=><Cart  name={cart.name}  image={cart.image} price={cart.price} quantity={cart.quantity} deleteButton={<Button onClick={()=> deleteItem(cart._id)} variant="text">
+      <p className="total-item">Total items : <span className="green">{usercart.length}</span></p>
+{usercart.map((cart)=><Cart  name={cart.name}  image={cart.image} price={cart.price} quantity={cart.quantity} deleteButton={<Button onClick={()=> deleteItem(cart._id)} variant="text">
 <IconButton aria-label="delete"  color="error">
         <DeleteIcon />
       </IconButton>
@@ -172,27 +197,3 @@ shippingAddress
 
 
 
-// export function Checkout() {
-
-//  let price=200;
-//  let name="zasd"
-
-//   const handleToken=()=>{
-
-//   }
-
-//   return (
-//     <div>
-// this is checkout page
-
-// <StripeCheckout
-// className="center"
-// stripeKey="pk_test_51LUTLESGF1FrCVyXlctlwjhduHJV4yykGSQbY0L3UyHI142XPzC49rCEazVh0Y5wQLFejrh9pWWx3UZ73rb7zWPs00DnTjsKay"
-// token={handleToken}
-// amount={price*100}
-// name={name}
-// billingAddress
-// shippingAddress/>
-//     </div>
-//   );
-// }

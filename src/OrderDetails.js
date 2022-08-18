@@ -13,7 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 // import { Cart } from "./Cart";
 import {cartCtx} from "./App"
-
+import { userCtx } from "./App";
 import {NavBar} from "./NavBar"
 
 export function OrderDetails() {
@@ -25,6 +25,19 @@ export function OrderDetails() {
 
   const[cartValue, setCartValue]=useContext(cartCtx)
   const[quantity,setQuantity]=useState(1)
+  const [user, setUser] = useContext(userCtx);
+  // const [userOrdering,setUserOrdering]=useState({})
+
+
+  // get user
+  // const getUser=()=>{
+  //   fetch(
+  //       `${API}/user/${user._id}`
+  //       ).then((data)=>data.json()) 
+  //       .then((pr)=>setUserOrdering(pr))
+  // }
+  
+  // useEffect(()=>getUser(),[])
   
   
 
@@ -65,12 +78,11 @@ export function OrderDetails() {
     function AddItem(){
      function order(response){
       if(response.message==="item already exist"){
-        // alert("item already exist")
         navigate("/cartList")
       }else{
-        setCartValue(cartValue+1)
         navigate("/explore")
         getItems()
+        console.log(response)
       }
 
      }
@@ -79,7 +91,8 @@ export function OrderDetails() {
       name: food.name,
       image: food.image,
       price: food.price,
-      quantity:quantity
+      quantity:quantity,
+      userId:user._id,
     };
 
     
@@ -92,6 +105,7 @@ export function OrderDetails() {
         },
       })
         .then((data) => data.json())
+        // .then(()=>navigate("/explore"))
         .then((res) => order(res));
     ;
    

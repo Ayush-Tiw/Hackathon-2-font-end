@@ -13,10 +13,12 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { useState, useEffect, useContext } from "react";
 import { API } from "./global";
 import { modeCtx } from "./App";
+import { userCtx } from "./App";
 export function NavBar() {
     const navigate = useNavigate();
     const [carts, setCarts] = useState([]);
     const [moDe, setMoDe] = useContext(modeCtx);
+    const [user, setUser] = useContext(userCtx);
   
     const getItems = () => {
       fetch(`${API}/cart`)
@@ -26,6 +28,10 @@ export function NavBar() {
     useEffect(() => {
       getItems();
     }, []);
+
+    const usercart= carts.filter((cart)=>
+ {return cart.userId===user._id})
+console.log(usercart)
 
     return (
         <nav className="Nav-bar">
@@ -47,30 +53,6 @@ export function NavBar() {
                 <HomeIcon />
               </IconButton>
             </Button>
-    
-            <Button variant="text">
-              <Badge badgeContent={carts.length} color="secondary">
-                <IconButton
-                  color="primary"
-                  aria-label="info"
-                  onClick={() => navigate("/cartList")}
-                >
-                  <ShoppingCartIcon />
-                </IconButton>
-              </Badge>
-            </Button>
-    
-           
-            <Button onClick={() => navigate("/")} variant="text">
-              {/* <IconButton  aria-label="info">
-                <LogoutIcon />
-                
-              </IconButton> */}
-              logout
-            </Button>
-            <Button onClick={() => navigate("/admin")} variant="text">
-              Admin
-            </Button>
             <Button
               color="primary"
               startIcon={
@@ -80,6 +62,35 @@ export function NavBar() {
             >
           {moDe==="light"?"Dark":"light"} mode 
             </Button>
+    
+            <Button variant="text">
+              <Badge badgeContent={usercart.length} color="secondary">
+                <IconButton
+                  color="primary"
+                  aria-label="info"
+                  onClick={() => navigate("/cartList")}
+                >
+                  <ShoppingCartIcon />
+                </IconButton>
+              </Badge>
+            </Button>
+
+    
+           
+            <Button onClick={() => navigate("/")} variant="text">
+              {/* <IconButton  aria-label="info">
+                <LogoutIcon />
+                
+              </IconButton> */}
+              logout
+            </Button>
+            <Button onClick={() => navigate("/profile")} variant="text">
+              profile
+            </Button>
+            <Button onClick={() => navigate("/admin")} variant="text">
+              Admin
+            </Button>
+            
           </div>
         </nav>
       );

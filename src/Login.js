@@ -24,21 +24,19 @@ const loginValidationSchema=yup.object({
 export function Login(){
 
     const navigate = useNavigate();
-    // const[user1,setUser]=useContext(userCtx)
+    const[user, setUser]=useContext(userCtx)
     const [moDe, setMoDe] = useContext(modeCtx);
-    const [user1,setUser1]=useState({})
+    // const [user1,setUser1]=useState({})
+
+    function userDetails(res){
+    console.log((res));
+    setUser(res)
+
+
+    }
 
     const loginUser = (User) => {
       console.log(User)
-      // setUser1(User)
-
-      fetch(`${API}/user/${User.email}`)
-              .then((data)=>data.json())
-              .then((userData)=>setUser1(userData))
-              
-console.log(user1)
-
-      // console.log(user)
         const login = (res) => {
 
           console.log(res.message);
@@ -60,6 +58,10 @@ console.log(user1)
             if (res.message === "succesfull login") {
 
               navigate("/explore")
+
+              fetch(`${API}/user/${res.user._id}`)
+              .then((data)=>data.json())
+              .then((response)=>userDetails(response))
 
             } else {
               toast.error('Invalid Credentials', {
@@ -146,7 +148,7 @@ loginUser(existingUser);
 <div className="login-main-container">
         <div className="login-intro">
           <h2 className="login-heading">LOG IN</h2>
-          <p>Welcome back! Login with your credentials</p>
+          <p>Welcome back! </p>
         </div>
         <div className="signup-input">
           <TextField
@@ -195,14 +197,3 @@ loginUser(existingUser);
     )
 }
 
-export function Profile(){
- 
-  const[user1,setUser]=useContext(userCtx)
-
-  // console.log(profile)
-  return(
-    <div>
-this is profile page {user1.email}
-    </div>
-  )
-}

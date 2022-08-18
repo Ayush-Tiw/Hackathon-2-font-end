@@ -13,12 +13,13 @@ import * as Yup from 'yup';
 import {modeCtx} from "./App";
 import IconButton from "@mui/material/IconButton";
 import LoginIcon from "@mui/icons-material/Login";
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const signupValidationSchema=Yup.object({
   username:Yup.string().required("Required"),
   email: Yup.string().email().required("Required"),
-  mobNumber:Yup.number().required("Required"),
+  mobNumber:Yup.number().required("Required").min(10,"Mobile number is not correct"),
   password: Yup.string().required("Required").min(8,"password minimum length should be of 8 characters").max(12,'password maximum length should not exceed 12')
 })
 
@@ -29,16 +30,23 @@ export function Signup() {
   const navigate=useNavigate()
 
   const AddUser=(User)=>{
-// const signUp=(res)=>{
+const signUp=(res)=>{
+console.log(res)
+if(res.message==="Email already exist"){
+  toast.error('Email already exist', {
+    position: "top-center",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+}else{
+  navigate("/")
+}
 
-// // if(res.message==="email already exist"){
-// //   alert("email already exist")
-// // }else{
-// //   navigate("/")
-// // }
-// console.log(res)
-// navigate("/")
-// }
+}
 
 console.log(User)
     fetch(
@@ -50,7 +58,7 @@ console.log(User)
         'content-Type':'application/json',
       },
     }).then((data)=>data.json())
-    .then(()=>navigate("/"))
+    .then((response)=>signUp(response))
     // .then((response)=>signUp(response))
     
     
@@ -149,6 +157,7 @@ AddUser(newUser);
 
       </div>
     </div>
+    <ToastContainer position="top-center" />
     </form>
   );
 }

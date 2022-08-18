@@ -11,7 +11,7 @@ import { Explore } from "./Explore";
 import { FoodDetails } from "./FoodDetails";
 import { OrderDetails } from "./OrderDetails";
 import { CartList } from "./CartList";
-import { Profile } from "./Login";
+import { Profile } from "./Profile";
 import { Admin, AdminDashboard } from "./Admin";
 import StripeCheckout from "react-stripe-checkout";
 
@@ -20,6 +20,8 @@ import { UserList } from "./UserList";
 import { ProductList } from "./ProductList";
 import { AddProduct } from "./AddProduct";
 import { EditProduct } from "./EditProduct";
+import {EditProfile} from "./Editprofile"
+import {OrderPlaced} from "./OrderPlaced"
 
 export const modeCtx = createContext();
 export const cartCtx = createContext();
@@ -27,7 +29,7 @@ export const userCtx = createContext();
 function App() {
   const [moDe, setMoDe] = useState("light");
   const [cartValue, setCartValue] = useState(0);
-  const [user1, setUser] = useState({});
+  const [user, setUser] = useState({});
 
   const theme = createTheme({
     palette: {
@@ -40,7 +42,7 @@ function App() {
       <Paper elevation={4} style={{ minHeight: "100vh", borderRadius: "0px" }}>
         <modeCtx.Provider value={[moDe, setMoDe]}>
           <cartCtx.Provider value={[cartValue, setCartValue]}>
-            <userCtx.Provider value={[user1, setUser]}>
+            <userCtx.Provider value={[user, setUser]}>
               <div className="App-container">
                 <Routes>
                   <Route path="/" element={<Home />} />
@@ -65,6 +67,8 @@ function App() {
                   <Route path="/product-list" element={<ProductList />} />
                   <Route path="/add-product" element={<AddProduct />} />
                   <Route path="/product/edit/:id" element={<EditProduct />} />
+                  <Route path="/profile/edit/:id" element={<EditProfile />} />
+                  <Route path="/order-placed" element={<OrderPlaced />} />
                 </Routes>
               </div>
             </userCtx.Provider>

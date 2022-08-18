@@ -44,9 +44,7 @@ body{
   box-shadow:1px 1px 2px 3px rgb(235, 223, 223);
  
 }
-.login-main-container{
-  margin-left:100px;
-}
+
 
 /* signup css */
 
@@ -79,7 +77,7 @@ body{
   
 }
 .food-container:hover .food-image{
-  box-shadow:1px 1px 5px 2px #ed4208;
+  box-shadow:1px 1px 5px 5px #ed4208;
 }
 
 
@@ -296,6 +294,48 @@ body{
     justify-content: center;
   }
 
+  /* profile css */
+.profile-name{
+  width:100%;
+  height:200px;
+  background: linear-gradient(to right,rgb(29, 29, 148),rgb(162, 162, 233));
+  display:flex;
+  align-items: center;
+    justify-content: space-around;
+    font-size:25px;
+}
+
+.profile-details{
+padding:20px
+}
+.grey{
+  color:grey;
+  font-size:20px;
+}
+.black-bold{
+  color:black;
+  font-size:20px;
+  font-weight:bold;
+}
+.profile-edit{
+  display:flex;
+  justify-content: space-around;
+  border:none;
+  
+}
+.profile-edit button{
+  border:none;
+  background-color: rgb(31, 68, 233);
+  padding:10px 20px ;
+  border-radius:20px
+}
+.profile-edit button:hover{
+  box-shadow:1px 1px 2px 2px blue;
+  cursor:pointer;
+}
+
+
+
   /* Admin css */
   .admin-container{
     display:flex;
@@ -480,4 +520,18 @@ box-shadow:1px 1px 5px 2px rgb(120, 221, 128);
     padding:10px
   }
 
-  
+  /* orderPlaced css */
+  .order-place-container{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    padding-top:120px
+  }
+
+  .order-place-container p{
+    font-size:18px;
+  }
+  .order-place-container h2{
+    color:green;
+    font-size:40px;
+  }
