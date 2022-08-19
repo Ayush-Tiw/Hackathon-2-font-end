@@ -97,8 +97,7 @@ const [product]=useState({
 
 async function  handleToken(token,product){
 
-
-
+console.log(token)
   fetch(
             `${API}/cart`,
            {
