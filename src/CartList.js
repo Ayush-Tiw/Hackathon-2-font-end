@@ -97,7 +97,7 @@ const [product]=useState({
 
 async function  handleToken(token,product){
 
-console.log(token)
+// console.log(token.email)
   fetch(
             `${API}/cart`,
            {
@@ -146,16 +146,16 @@ console.log(token)
 //   token:token,
 //   product:product
 // }
-
+// console.log(data)
  
 // await fetch(`${API}/orders`,
 // {
 //   method:"POST",
-//   body:JSON.stringify({token,product}),
+//   body:JSON.stringify(token),
 //   header:{
 //     'content-type':'application/json'
 //   }
-// }).then((response)=>checkout(response))
+// }).then((data)=>data.json())
 
 
     }
