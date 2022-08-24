@@ -43,6 +43,15 @@ if(res.message==="Email already exist"){
     progress: undefined,
     });
 }else{
+  toast.error('Registered Successfully', {
+    position: "top-center",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
   navigate("/")
 }
 

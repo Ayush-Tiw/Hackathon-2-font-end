@@ -16,12 +16,24 @@ import {Navbar} from "./navbar2"
 
 const adminValidationSchema=yup.object({
   email:yup.string().email().required("why not fill this field").min(8,"should be min 8 characters"),
-  password:yup.string().required("why not fill this field").min(8,"Password should be of minimus 8 characters")
+  password:yup.string().required("why not fill this field")
 })
 export function Admin() {
  const navigate= useNavigate();
 
   const adminUser=(admin)=>{
+
+//     function adminCheck(res){
+// if(res.message==="You are not an admin"){
+//   alert("You are not an admin")
+// }else{
+//   if(res.message==="succesfull login"){
+//     navigate("/admin-dashboard")
+//   }else{
+//     alert("invalid credentials")
+//   }
+// }
+//     }
         
     
       fetch(`${API}/admin`, {
@@ -32,7 +44,8 @@ export function Admin() {
         },
       })
         .then((data) => data.json())
-        .then(() => navigate("/admin-dashboard"));
+        .then(()=>navigate("/admin-dashboard"))
+        // .then((response) => adminCheck(response));
    
   };
 
@@ -152,10 +165,10 @@ export function AdminDashboard(){
 <h3>Users</h3>
         <button  className="admin-button" onClick={()=>navigate('/user-list')} >View</button>
 </div>
-<div className="orders">
+{/* <div className="orders">
 <h3>Orders</h3>
         <button  className="admin-button">View</button>
-</div>
+</div> */}
     </div>
     </div>
     </div>

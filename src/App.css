@@ -520,6 +520,22 @@ box-shadow:1px 1px 5px 2px rgb(120, 221, 128);
     padding:10px
   }
 
+  .add-button{
+    display:flex;
+    justify-content: center;
+  }
+  .add-button button{
+    border:none;
+    border-radius:20px;
+    padding:10px 20px;
+    background-color: green;
+    color:white
+  }
+  .add-button button:hover{
+      box-shadow:1px 1px 2px 2px rgb(59, 240, 14);
+    cursor:pointer
+  }
+
   /* orderPlaced css */
   .order-place-container{
     display:flex;
@@ -534,4 +550,22 @@ box-shadow:1px 1px 5px 2px rgb(120, 221, 128);
   .order-place-container h2{
     color:green;
     font-size:40px;
+  }
+
+  /* Edit profile css */
+  .submit-button{
+    display:flex;
+    justify-content: space-around;
+  }
+  .submit-button button{
+    border:none;
+    border-radius:20px;
+    padding:10px 20px;
+    background-color: green;
+    color:white
+  }
+
+  .submit-button button:hover{
+    box-shadow:1px 1px 2px 2px rgb(59, 240, 14);
+    cursor:pointer
   }

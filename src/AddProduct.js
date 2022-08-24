@@ -67,14 +67,14 @@ const productValidationSchema= yup.object({
                  error={touched.name && errors.name} 
                  helperText={touched.name  && errors.name ? errors.name : ""}/>
                  {/* {touched.poster  && errors.poster ? errors.poster : ""} */}
-                <TextField label="Image url" variant="standard"  name="image" type="file"
+                <TextField label="Image url" variant="standard"  name="image" 
                  value={values.image}
                  onChange={handleChange}
                  onBlur={handleBlur} 
                  error={touched.image && errors.image} 
                  helperText={touched.image  && errors.image ? errors.image : ""}/>
                   {/* {touched.name  && errors.name ? errors.name : ""} */}
-                  <input type="file" onChange={(e)=>chooseFile(e)}></input>
+                  {/* <input type="file" onChange={(e)=>chooseFile(e)}></input> */}
                 <TextField label="Price" variant="standard" name="price"
                  value={values.price}
                  onChange={handleChange}
@@ -89,7 +89,8 @@ const productValidationSchema= yup.object({
                  error={touched.summary && errors.summary}
                  helperText={touched.summary  && errors.summary ? errors.summary : ""}/>
             
-                <Button type="submit" variant="outlined" value="Upload" >Add Product</Button>
+                {/* <Button  variant="outlined" value="Upload" ></Button> */}
+                <div className="add-button"><button type="submit" >Add Product</button></div>
                 <div>
                    
                 </div>

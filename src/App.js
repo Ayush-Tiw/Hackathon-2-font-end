@@ -59,7 +59,6 @@ function App() {
                     }
                   />
                   <Route path="/foods/:id/:resId" element={<OrderDetails />} />
-                  {/* <Route path="/check-out" element={<StripeCheckout/>} /> */}
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/admin" element={<Admin />} />
                   <Route path="/admin-dashboard" element={<AdminDashboard />} />

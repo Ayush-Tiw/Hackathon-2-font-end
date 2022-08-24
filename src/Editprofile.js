@@ -103,7 +103,8 @@ console.log(profile)
                  error={touched.mobNumber && errors.mobNumber}
                  helperText={touched.mobNumber  && errors.mobNumber ? errors.mobNumber: ""}/>
             
-                <Button type="submit" variant="outlined" color="success" >SAVE</Button>
+                {/* <Button type="submit" variant="outlined" color="success" >SAVE</Button> */}
+                <div  className="submit-button"><button  type="submit">SAVE</button></div>
                 <div>
                    
                 </div>
