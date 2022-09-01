@@ -87,7 +87,7 @@ console.log(usercart)
             <Button onClick={() => navigate("/profile")} variant="text">
               profile
             </Button>
-            <Button onClick={() => navigate("/admin")} variant="text">
+            <Button onClick={() => navigate("/admin/login")} variant="text">
               Admin
             </Button>
             

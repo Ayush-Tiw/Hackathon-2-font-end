@@ -31,8 +31,6 @@ export function Login(){
     function userDetails(res){
     console.log((res));
     setUser(res)
-
-
     }
 
     const loginUser = (User) => {
@@ -180,7 +178,7 @@ loginUser(existingUser);
           />
           <br></br>
           
-          {/* <Link  to="/password-reset">Forgot Password ?</Link><br></br><br></br> */}
+          
           <Button type="submit" variant="contained" color="primary" >
             LOG IN
           </Button>

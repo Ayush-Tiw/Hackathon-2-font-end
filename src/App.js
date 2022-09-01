@@ -60,7 +60,7 @@ function App() {
                   />
                   <Route path="/foods/:id/:resId" element={<OrderDetails />} />
                   <Route path="/profile" element={<Profile />} />
-                  <Route path="/admin" element={<Admin />} />
+                  <Route path="/admin/login" element={<Admin />} />
                   <Route path="/admin-dashboard" element={<AdminDashboard />} />
                   <Route path="/user-list" element={<UserList />} />
                   <Route path="/product-list" element={<ProductList />} />

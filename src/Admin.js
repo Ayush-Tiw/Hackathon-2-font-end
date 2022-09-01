@@ -7,6 +7,8 @@ import TextField from "@mui/material/TextField";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import { useState, useEffect ,useContext} from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {  useNavigate } from "react-router-dom";
 import { API } from "./global";
 import {modeCtx,userCtx} from "./App"
@@ -15,28 +17,45 @@ import {Navbar} from "./navbar2"
 
 
 const adminValidationSchema=yup.object({
-  email:yup.string().email().required("why not fill this field").min(8,"should be min 8 characters"),
-  password:yup.string().required("why not fill this field")
+  email:yup.string().email().required("Required"),
+  password:yup.string().required("Required")
 })
 export function Admin() {
  const navigate= useNavigate();
 
   const adminUser=(admin)=>{
-
-//     function adminCheck(res){
-// if(res.message==="You are not an admin"){
-//   alert("You are not an admin")
-// }else{
-//   if(res.message==="succesfull login"){
-//     navigate("/admin-dashboard")
-//   }else{
-//     alert("invalid credentials")
-//   }
-// }
-//     }
+console.log(admin)
+    function adminCheck(res){
+      console.log(res.message)
+if(res.message==="You are not an admin"){
+  toast.error('You are not an admin', {
+    position: "top-center",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+}else{
+  if(res.message==="succesfull login"){
+    navigate("/admin-dashboard")
+  }else{
+    toast.error('invalid credentials', {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+  }
+}
+    }
         
     
-      fetch(`${API}/admin`, {
+      fetch(`${API}/admin/login`, {
         method: "POST",
         body: JSON.stringify(admin),
         headers: {
@@ -44,8 +63,7 @@ export function Admin() {
         },
       })
         .then((data) => data.json())
-        .then(()=>navigate("/admin-dashboard"))
-        // .then((response) => adminCheck(response));
+        .then((response) => adminCheck(response));
    
   };
 
@@ -110,12 +128,13 @@ adminUser(admin);
           />
           <br></br>
           
-          {/* <Link  to="/password-reset">Forgot Password ?</Link><br></br><br></br> */}
+         
           <Button type="submit" variant="contained" color="primary" >
             LOG IN
           </Button>
          
         </div>
+        <ToastContainer position="top-center" />
       </div>
 
     </form>
@@ -135,7 +154,7 @@ export function AdminDashboard(){
 
   return(
 <div className="admin-dashboard">
-<nav className="login-nav-bar">
+{/* <nav className="login-nav-bar">
           <div className="about-app">
           <img
             className="app-logo"
@@ -151,7 +170,8 @@ export function AdminDashboard(){
           
           <Button color="primary" startIcon={moDe === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />} onClick={()=>setMoDe( moDe==="light" ?"dark":"light")}>{moDe==="light"?"Dark":"light"} mode </Button>
         </div>
-          </nav>
+          </nav> */}
+          <Navbar/>
     <div className="dashboard">
       <h3>Admin Dashboard</h3>
     <div className="dashborad-container">

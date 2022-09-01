@@ -7,14 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import { useNavigate } from "react-router-dom";
 import DeleteIcon from '@mui/icons-material/Delete';
 import {NavBar} from "./NavBar"
-import { containerClasses } from "@mui/system";
-import TextField from '@mui/material/TextField';
-import { usePaymentInputs } from 'react-payment-inputs';
-import GooglePayButton from '@google-pay/button-react';
-
-
 import StripeCheckout from 'react-stripe-checkout';
-import { TableBody } from "@mui/material";
 import {cartCtx} from "./App";
 import { ToastContainer, toast } from 'react-toastify';
 import { userCtx } from "./App";
@@ -49,17 +42,10 @@ console.log(usercart)
     .then((cart)=>setCarts(cart))
   }
 
-  // console.log(carts.length)
-  
-
   useEffect(() => {
     getItems()
   }, []);
 
-  function setCart(){
-    
-    
-  }
 
   const deleteItem=(id)=> {
     //after delete we refresh the data
@@ -89,74 +75,40 @@ console.log(totalPrice)
 
 
 
-const [product]=useState({
-  price:totalPrice
+const [product,setProduct]=useState({
+  name:"payment checkout",
+  price:totalPrice,
+  productBy:"Food Zone"
 })
 
 // payment
 
 async function  handleToken(token,product){
 
-// console.log(token.email)
+  console.log(token)
+  console.log(user._id)
+console.log(token.email)
+
+const body={
+  token:token,
+  product:product,
+userId:user._id
+}
+const headers={
+  "Content-Type":"application/json"
+}
+
+fetch(`${API}/payment`,{
+  method:"POST",
+  body:JSON.stringify(body),
+  headers
+}).then(()=>{
   fetch(
-            `${API}/cart`,
-           {
-             method:"DELETE"
-            }).then(()=>navigate("/order-placed"));
-
-            // create a order placed page
-
-// function checkout(res){
-
-  
-
-//   console.log(res)
-
-//   if(res.status===200){
-//     toast('Payment is completed', {
-//       position: "top-center",
-//       autoClose: 3000,
-//       hideProgressBar: false,
-//       closeOnClick: true,
-//       pauseOnHover: true,
-//       draggable: true,
-//       progress: undefined,
-//       },{type:"success"});
-
-//       fetch(
-//         `${API}/cart`,
-//        {
-//          method:"DELETE"
-//         }).then(()=>getItems());
-
-//   }else{
-//     toast.error('Failure,Payment is not completed', {
-//       position: "top-center",
-//       autoClose: 3000,
-//       hideProgressBar: false,
-//       closeOnClick: true,
-//       pauseOnHover: true,
-//       draggable: true,
-//       progress: undefined,
-//       },{type:"error"});
-//   }
-
-// }
-// const data={
-//   token:token,
-//   product:product
-// }
-// console.log(data)
- 
-// await fetch(`${API}/orders`,
-// {
-//   method:"POST",
-//   body:JSON.stringify(token),
-//   header:{
-//     'content-type':'application/json'
-//   }
-// }).then((data)=>data.json())
-
+    `${API}/cart`,
+   {
+     method:"DELETE"
+    }).then(()=>navigate("/order-placed"));
+})
 
     }
     
@@ -177,16 +129,18 @@ async function  handleToken(token,product){
     <div className="total-price">
     <p>Total Price:<span className="red">₹</span><span className="green">{totalPrice}</span></p>  
       
-      <StripeCheckout className="checkout"
+      <StripeCheckout 
 stripeKey="pk_test_51LUTLESGF1FrCVyXlctlwjhduHJV4yykGSQbY0L3UyHI142XPzC49rCEazVh0Y5wQLFejrh9pWWx3UZ73rb7zWPs00DnTjsKay"
 token={handleToken}
 amount={product.price*100}
-// name={name}
+name="FOOD ZONE"
 currency="INR"
 billingAddress
 shippingAddress
 
-/>
+>
+  <button className="checkout">Checkout</button>
+</StripeCheckout>
     </div>
     <ToastContainer position="top-center" />
     
