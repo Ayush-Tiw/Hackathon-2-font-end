@@ -67,12 +67,15 @@ const productValidationSchema= yup.object({
                  error={touched.name && errors.name} 
                  helperText={touched.name  && errors.name ? errors.name : ""}/>
                  {/* {touched.poster  && errors.poster ? errors.poster : ""} */}
-                <TextField label="Image url" variant="standard"  name="image" 
+                <TextField label="Image URl" variant="standard"  name="image"
                  value={values.image}
                  onChange={handleChange}
                  onBlur={handleBlur} 
                  error={touched.image && errors.image} 
-                 helperText={touched.image  && errors.image ? errors.image : ""}/>
+                 helperText={touched.image  && errors.image ? errors.image : ""}>
+                    
+                 </TextField>
+                 {/* <button>Upload</button> */}
                   {/* {touched.name  && errors.name ? errors.name : ""} */}
                   {/* <input type="file" onChange={(e)=>chooseFile(e)}></input> */}
                 <TextField label="Price" variant="standard" name="price"

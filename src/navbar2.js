@@ -19,7 +19,7 @@ export function Navbar(){
 
     return(
         <nav className="login-nav-bar">
-          <div className="about-app" onClick={()=>navigate("/explore")}>
+          <div className="about-app">
           <img
             className="app-logo"
             src="https://webstockreview.net/images/clipart-restaurant-restaurant-logo-13.png"
@@ -29,18 +29,11 @@ export function Navbar(){
         </div>
         <div className="nav-button">
           
-        <Button
-              sx={{ color: "red" }}
-              onClick={() => navigate("/explore")}
-              variant="text"
-            >
-              <IconButton color="primary" aria-label="info">
-                <HomeIcon />
-              </IconButton>
-            </Button>
-
+        
+        <Button color="primary" onClick={()=>navigate("/admin-dashboard")}>dashboard </Button>
           
           <Button color="primary" startIcon={moDe === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />} onClick={()=>setMoDe( moDe==="light" ?"dark":"light")}>{moDe==="light"?"Dark":"light"} mode </Button>
+          <Button color="primary" onClick={()=>navigate("/admin/login")}>logout </Button>
         </div>
           </nav>
     )

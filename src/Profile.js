@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { userCtx } from "./App";
 import { API } from './global';
 import { useState,useEffect } from "react";
-import {Navbar} from "./navbar2"
+import {NavBar} from "./NavBar"
 
 
 
@@ -29,7 +29,7 @@ useEffect(()=>getProfile(),[])
   return (
     <div className="profile-container">
       {/* this is profile page {user.email} */}
-      <Navbar/>
+      <NavBar/>
       <div className="profile-name">
       <h2>{profile.username}</h2>
       </div>

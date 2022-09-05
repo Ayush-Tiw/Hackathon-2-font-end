@@ -131,6 +131,9 @@ loginUser(existingUser);
 
           
           <Button color="primary" startIcon={moDe === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />} onClick={()=>setMoDe( moDe==="light" ?"dark":"light")}>{moDe==="light"?"Dark":"light"} mode </Button>
+          <Button onClick={() => navigate("/admin/login")} variant="text">
+              Admin
+            </Button>
         </div>
           </nav>
 

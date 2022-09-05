@@ -20,8 +20,8 @@ import { UserList } from "./UserList";
 import { ProductList } from "./ProductList";
 import { AddProduct } from "./AddProduct";
 import { EditProduct } from "./EditProduct";
-import {EditProfile} from "./Editprofile"
-import {OrderPlaced} from "./OrderPlaced"
+import { EditProfile } from "./Editprofile";
+import { OrderPlaced } from "./OrderPlaced";
 
 export const modeCtx = createContext();
 export const cartCtx = createContext();

@@ -21,6 +21,7 @@ const adminValidationSchema=yup.object({
   password:yup.string().required("Required")
 })
 export function Admin() {
+  const [moDe, setMoDe] = useContext(modeCtx);
  const navigate= useNavigate();
 
   const adminUser=(admin)=>{
@@ -82,7 +83,24 @@ adminUser(admin);
 })
   return (
     <div>
-     <Navbar/>
+       <nav className="login-nav-bar">
+          <div className="about-app">
+          <img
+            className="app-logo"
+            src="https://webstockreview.net/images/clipart-restaurant-restaurant-logo-13.png"
+            alt="restaurant-logo"
+          />
+          <h1 className="app-name">FOOD ZONE</h1>
+        </div>
+        <div className="nav-button">
+
+          
+        <Button color="primary" onClick={()=>navigate("/")}>user </Button>
+          
+          <Button color="primary" startIcon={moDe === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />} onClick={()=>setMoDe( moDe==="light" ?"dark":"light")}>{moDe==="light"?"Dark":"light"} mode </Button>
+        </div>
+          </nav> 
+     {/* <Navbar/> */}
     <form onSubmit={handleSubmit} className="admin-container">
      
  
@@ -146,7 +164,7 @@ adminUser(admin);
 export function AdminDashboard(){
 
   const navigate=useNavigate()
-  const [moDe, setMoDe] = useContext(modeCtx);
+  
 
   function user(){
 
@@ -154,23 +172,7 @@ export function AdminDashboard(){
 
   return(
 <div className="admin-dashboard">
-{/* <nav className="login-nav-bar">
-          <div className="about-app">
-          <img
-            className="app-logo"
-            src="https://webstockreview.net/images/clipart-restaurant-restaurant-logo-13.png"
-            alt="restaurant-logo"
-          />
-          <h1 className="app-name">FOOD ZONE</h1>
-        </div>
-        <div className="nav-button">
 
-          
-
-          
-          <Button color="primary" startIcon={moDe === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />} onClick={()=>setMoDe( moDe==="light" ?"dark":"light")}>{moDe==="light"?"Dark":"light"} mode </Button>
-        </div>
-          </nav> */}
           <Navbar/>
     <div className="dashboard">
       <h3>Admin Dashboard</h3>

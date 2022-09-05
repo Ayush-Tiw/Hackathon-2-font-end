@@ -14,7 +14,7 @@ export function Explore(){
     const navigate = useNavigate();
 
     const[foodVisible,setfoodVisible]=useState(8)
-    const[restroVisible,setrestroVisible]=useState(4)
+    
   
     const [restros, setRetros] = useState([]);
     const [foods, setFoods] = useState([]);

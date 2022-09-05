@@ -20,24 +20,13 @@ export function OrderDetails() {
   const [food, setFood] = useState({});
   const [restro, setRetro] = useState({});
   
-  const [cartItem, setCartItem] = useState({});
+  // const [cartItem, setCartItem] = useState({});
 
 
   const[cartValue, setCartValue]=useContext(cartCtx)
   const[quantity,setQuantity]=useState(1)
   const [user, setUser] = useContext(userCtx);
-  // const [userOrdering,setUserOrdering]=useState({})
-
-
-  // get user
-  // const getUser=()=>{
-  //   fetch(
-  //       `${API}/user/${user._id}`
-  //       ).then((data)=>data.json()) 
-  //       .then((pr)=>setUserOrdering(pr))
-  // }
   
-  // useEffect(()=>getUser(),[])
   
   
 
@@ -50,6 +39,7 @@ export function OrderDetails() {
   };
 
   const { id, resId } = useParams();
+
   useEffect(() => {
     fetch(`${API}/foods/${id}`)
       .then((data) => data.json())
@@ -76,16 +66,16 @@ export function OrderDetails() {
   }, []);
 
     function AddItem(){
-     function order(response){
-      if(response.message==="item already exist"){
-        navigate("/cartList")
-      }else{
-        navigate("/explore")
-        getItems()
-        console.log(response)
-      }
+    //  function order(response){
+    //   if(response.message==="product already added to cart"){
+    //     navigate("/cartList")
+    //   }else{
+    //     navigate("/explore")
+    //     getItems()
+    //     console.log(response)
+    //   }
 
-     }
+    //  }
 
     const cartItem = {
       name: food.name,
@@ -105,8 +95,8 @@ export function OrderDetails() {
         },
       })
         .then((data) => data.json())
-        // .then(()=>navigate("/explore"))
-        .then((res) => order(res));
+        .then(()=>navigate("/explore"))
+        // .then((res) => order(res));
     ;
    
   };
