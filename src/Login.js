@@ -37,7 +37,7 @@ export function Login(){
       console.log(User)
         const login = (res) => {
 
-          console.log(res.message);
+          console.log(res.token);
          
           // console.log(res.user._id)
           
@@ -54,6 +54,8 @@ export function Login(){
             
           } else {
             if (res.message === "succesfull login") {
+
+              localStorage.setItem("token",res.token)
 
               navigate("/explore")
 

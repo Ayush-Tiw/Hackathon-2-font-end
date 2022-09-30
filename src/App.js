@@ -22,6 +22,7 @@ import { AddProduct } from "./AddProduct";
 import { EditProduct } from "./EditProduct";
 import { EditProfile } from "./Editprofile";
 import { OrderPlaced } from "./OrderPlaced";
+import {PreviewImage}  from  "./PreviewImage";
 
 export const modeCtx = createContext();
 export const cartCtx = createContext();
@@ -68,6 +69,7 @@ function App() {
                   <Route path="/product/edit/:id" element={<EditProduct />} />
                   <Route path="/profile/edit/:id" element={<EditProfile />} />
                   <Route path="/order-placed" element={<OrderPlaced />} />
+                  <Route path="/preview" element={<PreviewImage />} />
                 </Routes>
               </div>
             </userCtx.Provider>

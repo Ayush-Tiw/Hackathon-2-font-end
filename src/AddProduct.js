@@ -7,10 +7,13 @@ import {useFormik} from "formik";
 import {Navbar} from "./navbar2"
 import * as yup from 'yup';
 import { API } from './global';
+import {PreviewImage} from "./PreviewImage"
+import LoadingButton from '@mui/lab/LoadingButton';
+import SaveIcon from '@mui/icons-material/Save';
 
 
 const productValidationSchema= yup.object({
-        image:yup.string().required("why not fill this field").min(5,"Need bigger Poster"),
+        // image:yup.string().required("why not fill this field").min(5,"Need bigger Poster"),
         name:yup.string().required("why not fill this field"),
         price:yup.number().required("why not fill this field").min(10),
         summary:yup.string().required("why not fill this field").min(20,"Need bigger summary"),
@@ -18,30 +21,57 @@ const productValidationSchema= yup.object({
 // export function AddMovie({ movieList, setMovieList }) {
    
     export function AddProduct() {
+        const[click,setClick]=useState(true)
 
-        const navigate=useNavigate()
-    const addProduct = (product) => {
-        console.log(product)
 
-        fetch(
-            `${API}/foods`,
-           {
-             method:"POST",
-             body:JSON.stringify(product),
-             headers:{
-                'content-Type':'application/json',
-             },
-            }).then((data)=>data.json()) 
-            .then(()=>navigate("/product-list"))
+        const navigate=useNavigate() 
+
+    const formProduct = (product) => {
+        console.log(product.image)
+        // setImage(product.image)
+setClick(false)
+        const formData=new FormData();
+        formData.append("file",product.image)
+        formData.append("upload_preset", "tbdiuogu")
+        formData.append("cloud_name","dezivsphi")
+        
+        fetch("https://api.cloudinary.com/v1_1/dezivsphi/image/upload",{
+            method:"POST",
+            body:formData
+        }).then(res =>res.json()
+        ).then((data)=>{
+            console.log(data)
+            addProduct(data)
+        }) .catch(err=>console.log(err))
+    
+      const addProduct=(image)=>{
+console.log(image.url)
+const data={
+    image:image.url,
+    name:product.name,
+     price:product.price,
+    summary:product.summary
+}
+console.log(data)
+fetch(
+    `${API}/foods`,
+   {
+     method:"POST",
+     body:JSON.stringify(data),
+     headers:{
+        'content-Type':'application/json',
+     },
+    }).then((data)=>data.json()) 
+    .then(()=>navigate("/product-list"))
+
+        }
+
+     
   
     };
 
-    function chooseFile(e){
-        console.log(e.target.files[0])
 
-    }
-
-    const {handleSubmit,values,handleChange,handleBlur,touched,errors}=useFormik({
+    const {handleSubmit,setFieldValue,values,handleBlur,touched,errors}=useFormik({
         initialValues:{
         image:"",
         name:"",
@@ -50,7 +80,7 @@ const productValidationSchema= yup.object({
         validationSchema:productValidationSchema,
         onSubmit:(newProduct)=>{
             console.log("onSubmit",newProduct);
-            addProduct(newProduct)
+            formProduct(newProduct)
         }
     })
     return (
@@ -61,45 +91,45 @@ const productValidationSchema= yup.object({
                 <TextField label="Product Name" variant="standard" 
                 // error
                  name="name"
-                 value={values.name}
-                 onChange={handleChange}
+                 onChange={(event)=>setFieldValue("name",event.target.value)}
                  onBlur={handleBlur}
                  error={touched.name && errors.name} 
                  helperText={touched.name  && errors.name ? errors.name : ""}/>
-                 {/* {touched.poster  && errors.poster ? errors.poster : ""} */}
-                <TextField label="Image URl" variant="standard"  name="image"
-                 value={values.image}
-                 onChange={handleChange}
+                
+                <TextField label="Image URl" variant="standard"  name="image" type="file"
+                 onChange={(event)=>setFieldValue("image",event.target.files[0])}
                  onBlur={handleBlur} 
                  error={touched.image && errors.image} 
                  helperText={touched.image  && errors.image ? errors.image : ""}>
                     
                  </TextField>
-                 {/* <button>Upload</button> */}
-                  {/* {touched.name  && errors.name ? errors.name : ""} */}
-                  {/* <input type="file" onChange={(e)=>chooseFile(e)}></input> */}
                 <TextField label="Price" variant="standard" name="price"
-                 value={values.price}
-                 onChange={handleChange}
+                 onChange={(event)=>setFieldValue("price",event.target.value)}
                  onBlur={handleBlur}
                  error={touched.price && errors.price} 
                  helperText={touched.price  && errors.price ? errors.price : ""}/>
-                 {/* {touched.rating  && errors.rating ? errors.rating : ""} */}
                 <TextField label="Summary" variant="standard" name="summary"
-                 value={values.summary}
-                 onChange={handleChange}
+                 onChange={(event)=>setFieldValue("summary",event.target.value)}
                  onBlur={handleBlur}
                  error={touched.summary && errors.summary}
                  helperText={touched.summary  && errors.summary ? errors.summary : ""}/>
-            
-                {/* <Button  variant="outlined" value="Upload" ></Button> */}
-                <div className="add-button"><button type="submit" >Add Product</button></div>
-                <div>
-                   
+
+                 {click ? <div className="add-button"><button type="submit" >Add Product</button></div> : <div className="add-button"> <LoadingButton
+                 sx={{color:"white"}}
+        loading
+        loadingPosition="start"
+        startIcon={<SaveIcon />}
+        variant="outlined"
+      >
+       Adding
+      </LoadingButton></div> }
+               
+                <div>                
                 </div>
 
             
         </form>
+        
         </div>
     );
 }

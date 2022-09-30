@@ -53,7 +53,10 @@ console.log(usercart)
     fetch(
         `${API}/cart/${id}`,
        {
-         method:"DELETE"
+         method:"DELETE",
+         headers:{
+          "x-auth-token":localStorage.getItem("token")
+         }
         })
         .then(()=>getItems())
         .then(()=>navigate("/cartList"));
@@ -73,34 +76,62 @@ return arr
     },0)
 console.log(totalPrice)
 
+let totalQuantity=usercart.filter((cart)=>{
+  let arr=[]
+let name=cart.name * cart.quantity
+console.log(`${cart.name} * ${cart.quantity}`)
+arr.push(`${cart.name} * ${cart.quantity}`)
+console.log(arr)
+return arr
+})
+console.log(totalQuantity)
 
 
-const [product,setProduct]=useState({
+let b=usercart.map((cart)=>{
+
+  let a=""
+  a=a+`${cart.name} * ${cart.quantity}`
+  return a
+
+})
+console.log(b)
+
+
+// const [product,setProduct]=useState({
+//   name:"payment checkout",
+//   price:`${totalPrice}`,
+//   productBy:"Food Zone"
+// })
+
+// payment
+const product={
   name:"payment checkout",
   price:totalPrice,
   productBy:"Food Zone"
-})
+}
 
-// payment
+async function  handleToken(token){
 
-async function  handleToken(token,product){
+
 
   console.log(token)
   console.log(user._id)
 console.log(token.email)
+console.log(product)
 
-const body={
+const data={
   token:token,
   product:product,
 userId:user._id
 }
+console.log(data)
 const headers={
   "Content-Type":"application/json"
 }
 
 fetch(`${API}/payment`,{
   method:"POST",
-  body:JSON.stringify(body),
+  body:JSON.stringify(data),
   headers
 }).then(()=>{
   fetch(
