@@ -434,8 +434,9 @@ box-shadow:1px 1px 5px 2px rgb(120, 221, 128);
 
   .user-list  {
    display:flex;
-   flex-wrap: wrap;;
+   flex-wrap: wrap;
    padding:20px;
+   justify-content: space-around;
    
   }
   .user-delete-button{
