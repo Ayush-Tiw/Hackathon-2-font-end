@@ -1,140 +1,132 @@
-
-body{
+body {
   margin: 0;
   padding: 0;
 }
 
-.login-nav-bar,.signup-nav-bar{
-  display:flex;
-  background-color:rgb(92, 70, 72);
+.login-nav-bar,
+.signup-nav-bar {
+  display: flex;
+  background-color: rgb(92, 70, 72);
   align-items: center;
   justify-content: space-between;
 }
-.app-logo{
-  height:60px;
-  width:60px;
-  margin-right:10px
+.app-logo {
+  height: 60px;
+  width: 60px;
+  margin-right: 10px;
 }
-.about-app{
-  display:flex;
+.about-app {
+  display: flex;
   align-items: center;
-  cursor:pointer
+  cursor: pointer;
 }
-.app-name{
-  font-family:cursive;
-  color:#ed4208;
+.app-name {
+  font-family: cursive;
+  color: #ed4208;
 }
 
-.login-main-content,.signup-main-content{
-  display:flex;
+.login-main-content,
+.signup-main-content {
+  display: flex;
   align-content: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin-top:30px
+  margin-top: 30px;
 }
 
-.side-image img{
-  width:400px;
-  padding:20px;
+.side-image img {
+  width: 400px;
+  padding: 20px;
 }
-.login-main-container,.signup-main-container{
+.login-main-container,
+.signup-main-container {
   text-align: center;
-  border-radius:20px;
-  padding:20px;
-  box-shadow:1px 1px 2px 3px rgb(235, 223, 223);
- 
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 1px 1px 2px 3px rgb(235, 223, 223);
 }
-
 
 /* signup css */
 
-
 /* Navbar css */
-.Nav-bar{
-  display:flex;
-  flex-direction:row;
+.Nav-bar {
+  display: flex;
+  flex-direction: row;
   /* background-color: wheat; */
   justify-content: space-between;
   background-color: rgb(92, 70, 72);
   align-items: center;
 }
-.nav-button{
-  margin-right:20px;
+.nav-button {
+  margin-right: 20px;
 }
-
 
 /* Food and Restaurant css */
-.food-container{
-  margin:20px;
+.food-container {
+  margin: 20px;
   text-align: center;
-  cursor:pointer
+  cursor: pointer;
 }
-.food-image{
-  width:250px;
-  height:250px;
+.food-image {
+  width: 250px;
+  height: 250px;
   object-fit: cover;
-  border-radius:200px;
-  
+  border-radius: 200px;
 }
-.food-container:hover .food-image{
-  box-shadow:1px 1px 2px 2px rgb(233, 83, 83);
-  width:270px;
-  height:270px;
+.food-container:hover .food-image {
+  box-shadow: 1px 1px 2px 2px rgb(233, 83, 83);
+  width: 270px;
+  height: 270px;
 }
-
 
 /* Restaurant css */
-.restro-container{
-  margin:20px;
+.restro-container {
+  margin: 20px;
   text-align: center;
-  border-radius:20px;
-  
-  
+  border-radius: 20px;
 }
-.restro-image{
-  width:250px;
-  height:250px;
+.restro-image {
+  width: 250px;
+  height: 250px;
   object-fit: cover;
-  border-radius:20px;
+  border-radius: 20px;
 }
-.restro-container:hover{
-  cursor:pointer;
-  box-shadow:1px 1px 2px 2px rgb(206, 204, 204)
+.restro-container:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 2px 2px rgb(206, 204, 204);
 }
-
 
 /* Explore css */
-.explore-header{
-  width:100%;
-  height:500px;
+.explore-header {
+  width: 100%;
+  height: 500px;
   object-fit: cover;
   background-image: url("https://www.healthline.com/hlcmsresource/images/chinese_food-1200x628-facebook.jpg");
-  opacity:0.8;
-  margin-bottom:20px;
+  opacity: 0.8;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.food-list-map{
-  display:flex;
- flex-wrap: wrap;
- justify-content: space-around;
+.food-list-map {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.food-items{
+.food-items {
   text-align: center;
-  font-family:cursive;
-  font-size:30px
+  font-family: cursive;
+  font-size: 30px;
 }
 
-.view-all{
+.view-all {
   text-align: center;
-  
 }
-.view-button{
-  width:400px;
-  border-radius:30px;
-  padding:10px;
-  margin:20px;
+.view-button {
+  width: 400px;
+  border-radius: 30px;
+  padding: 10px;
+  margin: 20px;
   background-color: green;
   border: none;
   font-size: 20px;
@@ -142,444 +134,421 @@ body{
   cursor: pointer;
 }
 
-.red{
-  color:red
+.red {
+  color: red;
 }
 
-.about-us{
-  padding:10px 20px 10px 20px;
-
+.about-us {
+  padding: 10px 20px 10px 20px;
 }
-.bold{
-  font-weight:bold;
+.bold {
+  font-weight: bold;
 }
-.search-container{
-  padding-top:200px
+.search-container {
+  padding-top: 200px;
 }
-.search-container input{
-  border:2px solid grey;
-  border-radius:10px;
-  padding:8px;
-  background-color:whitesmoke;
-  color:red;
-  font-weight:bold;
-  margin-right:10px;
-  
+.search-container input {
+  border: 2px solid grey;
+  border-radius: 10px;
+  padding: 8px;
+  background-color: whitesmoke;
+  color: red;
+  font-weight: bold;
+  margin-right: 10px;
 }
-.search-container button{
-  border:2px solid grey;
-  border-radius:10px;
-  color:red;
-  padding:8px;
-  font-weight:bold;
-  cursor:pointer;
-
+.search-container button {
+  border: 2px solid grey;
+  border-radius: 10px;
+  color: red;
+  padding: 8px;
+  font-weight: bold;
+  cursor: pointer;
 }
-.search-container button:hover{
-  border:2px solid red
+.search-container button:hover {
+  border: 2px solid red;
 }
 
 /* FoodDetails css */
-.selected-food-image img{
-  width:500px;
-  height:300px;
+.selected-food-image img {
+  width: 500px;
+  height: 300px;
   object-fit: cover;
   border-radius: 20px;
-  
 }
-.selected-food-image{
+.selected-food-image {
   text-align: center;
 }
 
-.restro-list-map{
-  display:flex;
- flex-wrap: wrap;
- justify-content: space-around;
+.restro-list-map {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-.select-restuarant{
-  padding:20px
+.select-restuarant {
+  padding: 20px;
 }
 
 /* OrderDetails css */
-.ordering-restro{
-  display:flex;
+.ordering-restro {
+  display: flex;
   justify-content: space-between;
-  padding:0px 20px 0px 20px
+  padding: 0px 20px 0px 20px;
 }
-.ordering-restro img{
-  width:100px;
-  height:100px;
-  object-fit:cover;
+.ordering-restro img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
   align-items: center;
 }
-.ordering-food{
-  text-align:center;
-
+.ordering-food {
+  text-align: center;
 }
-.ordering-food img{
-  height:300px;
-  width:50%;
-  border-radius:30px;
-  object-fit:cover;
-  
-  
+.ordering-food img {
+  height: 300px;
+  width: 50%;
+  border-radius: 30px;
+  object-fit: cover;
 }
-.ordering-food-details{
-  display:flex;
+.ordering-food-details {
+  display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding:0px 50px 0px 50px
+  padding: 0px 50px 0px 50px;
 }
 
-.action-button{
-  display:flex;
+.action-button {
+  display: flex;
   align-content: space-around;
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
-.add-to-cart-button{
-  font-size:15px;
-  background-color:#ed4208;
-  padding:10px;
-  border-radius:30px;
-  border:none;
-  width:200px;
-  
+.add-to-cart-button {
+  font-size: 15px;
+  background-color: #ed4208;
+  padding: 10px;
+  border-radius: 30px;
+  border: none;
+  width: 200px;
 }
-.add-to-cart-button:hover{
-  cursor:pointer;
-  box-shadow:1px 1px 2px 2px rgb(106, 106, 241)
+.add-to-cart-button:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 2px 2px rgb(106, 106, 241);
 }
 
 /* Cart css */
-.cart-container{
-  height:60px;
-  display:flex;
+.cart-container {
+  height: 60px;
+  display: flex;
   justify-content: space-around;
   align-items: center;
-  box-shadow:1px 1px 2px 1px grey;
-  padding:10px ;
-  margin-top:10px;
-  border-radius:20px;
-  font-size:15px;
-  font-weight:bold;
+  box-shadow: 1px 1px 2px 1px grey;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: bold;
 }
-.cart-item-image img{
-  width:50px;
-  height:50px;
-}
-
-.cart-item-quantity{
-  color:grey
-}
-.cart-item-quantity{
-  color:grey
+.cart-item-image img {
+  width: 50px;
+  height: 50px;
 }
 
-.item-total-price{
-  
-  font-size:14px
+.cart-item-quantity {
+  color: grey;
+}
+.cart-item-quantity {
+  color: grey;
+}
+
+.item-total-price {
+  font-size: 14px;
 }
 
 /* CartList css */
-.cart-list-container{
-  padding:0px 50px 0px 50px
+.cart-list-container {
+  padding: 0px 50px 0px 50px;
 }
-.total-price{
+.total-price {
   text-align: right;
-  padding:0px 50px 50px 0px  ;
-  font-weight:bold;
-  }
+  padding: 0px 50px 50px 0px;
+  font-weight: bold;
+}
 
-  /* checkout css */
-  .center{
-    display:flex;
-    justify-content: center;
-  }
+/* checkout css */
+.center {
+  display: flex;
+  justify-content: center;
+}
 
-  .checkout{
-    border:none;
-    border-radius:20px;
-    padding:10px 20px;
-    background-color: green;
-  }
-  .checkout:hover{
-    cursor:pointer;
-    box-shadow:1px 1px 1px 1px rgb(105, 228, 89); ;
-  }
+.checkout {
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  background-color: green;
+}
+.checkout:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 1px 1px rgb(105, 228, 89);
+}
 
-  /* profile css */
-.profile-name{
-  width:100%;
-  height:200px;
-  background: linear-gradient(to right,rgb(29, 29, 148),rgb(162, 162, 233));
-  display:flex;
+/* profile css */
+.profile-name {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to right, rgb(29, 29, 148), rgb(162, 162, 233));
+  display: flex;
   align-items: center;
-    justify-content: space-around;
-    font-size:25px;
-}
-
-.profile-details{
-padding:20px
-}
-.grey{
-  color:grey;
-  font-size:20px;
-}
-.black-bold{
-  color:black;
-  font-size:20px;
-  font-weight:bold;
-}
-.profile-edit{
-  display:flex;
   justify-content: space-around;
-  border:none;
-  
+  font-size: 25px;
 }
-.profile-edit button{
-  border:none;
+
+.profile-details {
+  padding: 20px;
+}
+.grey {
+  color: grey;
+  font-size: 20px;
+}
+.black-bold {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+.profile-edit {
+  display: flex;
+  justify-content: space-around;
+  border: none;
+}
+.profile-edit button {
+  border: none;
   background-color: rgb(31, 68, 233);
-  padding:10px 20px ;
-  border-radius:20px
+  padding: 10px 20px;
+  border-radius: 20px;
 }
-.profile-edit button:hover{
-  box-shadow:1px 1px 2px 2px blue;
-  cursor:pointer;
-}
-
-
-
-  /* Admin css */
-  .admin-container{
-    display:flex;
-    align-content: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    /* margin-top:30px */
-    padding-top:70px 
-
-  }
-  .admin-main-container{
-    text-align: center;
-    border:1px solid #ed4208;
-    border-radius:20px;
-    padding:40px;
-    box-shadow:2px 2px 2px 2px #ed4208;
-  }
-  .admin-side-image img{
-    width:400px;
-    /* padding:80px; */
-  }
-
-  /* Admin Dashboard css */
-
-  .dashboard{
-   
-    padding:20px;
-    border:none;
-  }
-  .dashboard h3{
-    margin: 0;
-  }
-
-  .dashborad-container{
-    /* margin:0px; */
-    display: flex;
-    flex-wrap: wrap;
-    padding:20px;
-    justify-content: space-evenly;
-  }
-  .products,.users,.orders{
-    /* background: linear-gradient(to right,rgb(230, 130, 230),purple); */
-    width:250px;
-   margin-top:20px;
-    padding:100px 50px ;
- font-size:20px;
-    border-radius:10px;
-    text-align: center;
-    
-  }
-  .admin-button{
-    border:none;
-    padding:10px;
-    border-radius:15px;
-    margin-top:10px;
-    background-color: green;
-    color:white;
-  }
-.admin-button:hover{
-cursor: pointer;
-box-shadow:1px 1px 5px 2px rgb(120, 221, 128);
-}
-  .products{
-    background: linear-gradient(to right,rgb(230, 130, 230),purple);
-    
-  }
-  .users{
-    background: linear-gradient(to right,rgb(100, 100, 226),rgb(31, 31, 233));
-    
-  }
-  .orders{
-    background:linear-gradient(to right,rgb(218, 121, 82),rgb(255, 81, 0))
-  }
-
-  /* userlist css */
-
-  
-
-  .userlist-container h4{
-    text-align: center;
-    margin-top:20px;
-  }
-
-  .user-list  {
-   display:flex;
-   flex-wrap: wrap;
-   padding:20px;
-   justify-content: space-around;
-   
-  }
-  .user-delete-button{
-    background-color: rgb(167, 4, 4);
-   color:white;
-   border:none;
-   border-radius:10px;
-   padding:10px
- }
-
- .user-delete-button:hover{
-   cursor: pointer;
-   box-shadow:1px 1px 1px 1px rgb(105, 228, 89);
-   }
- 
-
-  /* user css */
-  .user-container  {
-   text-align: center;
-   padding:10px;
-   margin:20px;
-   border-radius:10px;
-   box-shadow:1px 1px 3px 3px grey;
-
-  }
-  .bold{
-    font-weight:bold;
-  }
-
-  /* product css */
-.product-container img{
-  width:50px;
-  height:50px;
-  border-radius:10px;
+.profile-edit button:hover {
+  box-shadow: 1px 1px 2px 2px blue;
+  cursor: pointer;
 }
 
-  .product-container{
-    border-radius:20px;
-    box-shadow:1px 1px 5px 2px grey;
-    width:300px;
-    text-align: center;
-    padding:20px;
-    margin:20px;
-    /* background-color: #f5f0ee; */
-  }
+/* Admin css */
+.admin-container {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /* margin-top:30px */
+  padding-top: 70px;
+}
+.admin-main-container {
+  text-align: center;
+  border: 1px solid #ed4208;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 2px 2px 2px 2px #ed4208;
+}
+.admin-side-image img {
+  width: 400px;
+  /* padding:80px; */
+}
 
-  /* product list css */
-  .product-list-container button{
-  margin:20px 30px 0px 20px;
-  border:none;
-  border-radius:15px;
- padding:10px;
+/* Admin Dashboard css */
 
-  }
-  
-  .product-list{
-    display:flex;
-    flex-wrap: wrap;
-    padding:20px;
-    justify-content: space-evenly;
-  }
-  .add-product-button{
-    background-color: green;
-    color:white;
-  }
-  .add-product-button:hover{
-    cursor: pointer;
-    box-shadow:1px 1px 1px 1px rgb(105, 228, 89);
-  }
-  .admin-delete-button{
-     background-color: rgb(167, 4, 4);
-    color:white;
-  }
+.dashboard {
+  padding: 20px;
+  border: none;
+}
+.dashboard h3 {
+  margin: 0;
+}
 
-  .admin-delete-button:hover{
-    cursor: pointer;
-    box-shadow:1px 1px 1px 1px rgb(105, 228, 89);
-    }
-    .admin-edit-button{
-      background-color: green;
-      color:white;
+.dashborad-container {
+  /* margin:0px; */
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: space-evenly;
+}
+.products,
+.users,
+.orders {
+  /* background: linear-gradient(to right,rgb(230, 130, 230),purple); */
+  width: 250px;
+  margin-top: 20px;
+  padding: 100px 50px;
+  font-size: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+.admin-button {
+  border: none;
+  padding: 10px;
+  border-radius: 15px;
+  margin-top: 10px;
+  background-color: green;
+  color: white;
+}
+.admin-button:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 5px 2px rgb(120, 221, 128);
+}
+.products {
+  background: linear-gradient(to right, rgb(230, 130, 230), purple);
+}
+.users {
+  background: linear-gradient(to right, rgb(100, 100, 226), rgb(31, 31, 233));
+}
+.orders {
+  background: linear-gradient(to right, rgb(218, 121, 82), rgb(255, 81, 0));
+}
 
-    }
-    .admin-edit-button:hover{
-      cursor: pointer;
-      box-shadow:1px 1px 1px 1px rgb(228, 94, 89);
-    }
+/* userlist css */
 
+.userlist-container h4 {
+  text-align: center;
+  margin-top: 20px;
+}
 
-  /* add product css */
-  .add-product-form{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    padding:10px
-  }
+.user-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: space-around;
+}
+.user-delete-button {
+  background-color: rgb(167, 4, 4);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
 
-  .add-button{
-    display:flex;
-    justify-content: center;
-  }
-  .add-button button{
-    border:none;
-    border-radius:20px;
-    padding:10px 20px;
-    background-color: green;
-    color:white
-  }
-  .add-button button:hover{
-      box-shadow:1px 1px 2px 2px rgb(59, 240, 14);
-    cursor:pointer
-  }
+.user-delete-button:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 1px 1px rgb(105, 228, 89);
+}
 
-  /* orderPlaced css */
-  .order-place-container{
-    display:flex;
-    flex-direction:column;
-    align-items: center;
-    padding-top:120px
-  }
+/* user css */
+.user-container {
+  text-align: center;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px 3px grey;
+}
+.bold {
+  font-weight: bold;
+}
 
-  .order-place-container p{
-    font-size:18px;
-  }
-  .order-place-container h2{
-    color:green;
-    font-size:40px;
-  }
+/* product css */
+.product-container img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
 
-  /* Edit profile css */
-  .submit-button{
-    display:flex;
-    justify-content: space-around;
-  }
-  .submit-button button{
-    border:none;
-    border-radius:20px;
-    padding:10px 20px;
-    background-color: green;
-    color:white
-  }
+.product-container {
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px 2px grey;
+  width: 300px;
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+  /* background-color: #f5f0ee; */
+}
 
-  .submit-button button:hover{
-    box-shadow:1px 1px 2px 2px rgb(59, 240, 14);
-    cursor:pointer
-  }
+/* product list css */
+.product-list-container button {
+  margin: 20px 30px 0px 20px;
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: space-evenly;
+}
+.add-product-button {
+  background-color: green;
+  color: white;
+}
+.add-product-button:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 1px 1px rgb(105, 228, 89);
+}
+.admin-delete-button {
+  background-color: rgb(167, 4, 4);
+  color: white;
+}
+
+.admin-delete-button:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 1px 1px rgb(105, 228, 89);
+}
+.admin-edit-button {
+  background-color: green;
+  color: white;
+}
+.admin-edit-button:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 1px 1px rgb(228, 94, 89);
+}
+
+/* add product css */
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.add-button {
+  display: flex;
+  justify-content: center;
+}
+.add-button button {
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  background-color: green;
+  color: white;
+}
+.add-button button:hover {
+  box-shadow: 1px 1px 2px 2px rgb(59, 240, 14);
+  cursor: pointer;
+}
+
+/* orderPlaced css */
+.order-place-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 120px;
+}
+
+.order-place-container p {
+  font-size: 18px;
+}
+.order-place-container h2 {
+  color: green;
+  font-size: 40px;
+}
+
+/* Edit profile css */
+.submit-button {
+  display: flex;
+  justify-content: space-around;
+}
+.submit-button button {
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  background-color: green;
+  color: white;
+}
+
+.submit-button button:hover {
+  box-shadow: 1px 1px 2px 2px rgb(59, 240, 14);
+  cursor: pointer;
+}

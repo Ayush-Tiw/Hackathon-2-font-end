@@ -1,7 +1,6 @@
 import logo from "./logo.svg";
 import * as React from "react";
-import TextField from "@mui/material/TextField";
-import { Routes, Route, Link, Navigate, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import { useState, createContext, useEffect } from "react";
@@ -13,8 +12,6 @@ import { OrderDetails } from "./OrderDetails";
 import { CartList } from "./CartList";
 import { Profile } from "./Profile";
 import { Admin, AdminDashboard } from "./Admin";
-import StripeCheckout from "react-stripe-checkout";
-
 import "./App.css";
 import { UserList } from "./UserList";
 import { ProductList } from "./ProductList";
@@ -22,7 +19,7 @@ import { AddProduct } from "./AddProduct";
 import { EditProduct } from "./EditProduct";
 import { EditProfile } from "./Editprofile";
 import { OrderPlaced } from "./OrderPlaced";
-import {PreviewImage}  from  "./PreviewImage";
+import { PreviewImage } from "./PreviewImage";
 
 export const modeCtx = createContext();
 export const cartCtx = createContext();
